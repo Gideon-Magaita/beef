@@ -7,8 +7,7 @@ class Slider(models.Model):
     sub_title = models.TextField(max_length=200,null=True,blank=True)
     image = models.FileField(upload_to='images',blank=True,null=True)
 
-    def __str__(self):
-        return self.title
+
 
 
 class Intro(models.Model):
@@ -33,8 +32,7 @@ class Gallery(models.Model):
    image = models.FileField(upload_to='images',blank=True,null=True)
    date = models.DateField(auto_now=True)
 
-   def __str__(self):
-       return self.date
+
 
 
 class Question(models.Model):
