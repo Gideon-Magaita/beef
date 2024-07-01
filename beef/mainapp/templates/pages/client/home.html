@@ -5,34 +5,26 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
+     
       <div class="info d-flex align-items-center">
         <div class="container">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            {% for s in titles %}
             <div class="col-lg-6 text-center">
-              <h2>Welcome to Afriharvest Beef </h2>
-              <p>At Afriharvest Feedlot, we are committed to upholding the highest standards in beef production and take pride in producing beef that is natural, local, premium quality and truly in a league of its own.</p>
+              <h2>{{ s.title }}</h2>
+              <p>{{ s.sub_title }}</p>
               <a href="#constructions" class="btn-get-started">Get Started</a>
             </div>
+            {% endfor %}
           </div>
         </div>
       </div>
+  
 
       <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-item">
-          <img src="{% static 'assets/img/hero-carousel/image1.jpg' %}" alt="">
-        </div>
-
-        <div class="carousel-item active">
-          <img src="{% static 'assets/img/hero-carousel/image2.jpg' %}" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="{% static 'assets/img/hero-carousel/image3.jpg' %}" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="{% static 'assets/img/hero-carousel/image4.jpg' %}" alt="">
+        {% for s in slider %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ s.image.url }}" alt="">
         </div>
 
 
@@ -43,8 +35,12 @@
         <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
+        {% endfor %}
 
       </div>
+  
+
+
 
     </section><!-- /Hero Section -->
 
@@ -62,58 +58,25 @@
       <div class="container">
 
         <div class="row gy-4 justify-content-center">
-
+          {% for i in introduction %}
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg"><img src="{% static 'assets/img/machines.jpg' %}" alt=""></div>
+                  <div class="card-bg"><img src="{{ i.image.url }}" alt=""></div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
                   <div class="card-body">
-                    <h4 class="card-title">Quality without Compromise.</h4>
-                    <p style="text-align: justify;">We understand that beef of the highest quality can only be achieved with top notch consistency and precision. By leveraging modern automation and mechanization, we have fine-tuned our processes to deliver beef cattle that meets top class standards, every single time..</p>
+                    <h4 class="card-title">{{ i.title }}</h4>
+                    <p style="text-align: justify;">{{ i.sub_title }}</p>
                   </div>
                 </div>
               </div>
             </div>
+        
           </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg"><img src="{% static 'assets/img/bull.jpg' %}" alt=""></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Exceptional and Tanzanian</h4>
-                    <p style="text-align: justify;">We pride ourselves in raising indigenous and local breeds suited to our tropical climate and environment; resilient to harsh environmental conditions. We take exceptional care of our livestock from calving to your plate, ensuring we deliver high-quality beef designed to exceed all expectations..</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg"><img src="{% static 'assets/img/image-3.jpg' %}" alt=""></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Farm to Fork Traceability</h4>
-                    <p style="text-align: justify;">Afriharvest Feedlot Beef quality is backed by farm to fork traceability to ensure you receive only the best in food standards. Our professional team maintains high standards in all levels of our supply chain so that you can always trust that when you source animals from us, you get reliable and affordable quality.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-
+          {% endfor %}
           
-
         </div>
 
       </div>
@@ -122,20 +85,25 @@
 
     
 
+
     <!-- Alt Services Section -->
     <section id="alt-services" class="alt-services section">
 
       <div class="container">
 
         <div class="row justify-content-around gy-4">
-
+          {% for s in story %}
           <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-            <h3>Our Story</h3>
-            <p style="text-align: justify;">Afriharvest Beef is a Tanzanian Beef Production Company nestled in the vast savannah plains of central Tanzania. With the fascinating Miombo woodlands and the lush green grass of the savannah, our farm is perfectly suited to raise indigenous Tanzanian cattle; the Shorthorn Zebu that thrives in the local climate. Our carefully designed and formulated feeds which are organically grown in our farms, provides optimal nutrition and promote healthy growth, resulting in beef of top notch quality. Beyond beef cattle, we also rear goats and sheep which are very much adapted in feeding from the shrubs. This diversification allows us to offer a wide range of high-quality meat products to meet the diverse needs of our customers. We also provide consultancy services in beef production with our objective to assist interested investors venture into beef production. At our farm, we share our experiences, expertise, and knowledge on how to establish and manage successful feedlots.</p>
-
-        
+            <h3>{{ s.title }}</h3>
+            <p style="text-align: justify;">{{ s.sub_title }}</p>
           </div>
-          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="{% static 'assets/img/cow.png' %}" alt=""></div>
+
+          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="{{ s.image.url }}" alt="">
+          </div>
+          
+       
+          {% endfor %}
 
         </div>
 
@@ -158,13 +126,13 @@
         <div class="container">
   
           <div class="row gy-5">
-  
+         {% for g in gall %}
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
   
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="{% static 'assets/img/blog/blog-1.jpg' %}" class="img-fluid" alt="">
-                  <span class="post-date">December 12</span>
+                  <img src="{{ g.image.url }}" class="img-fluid" alt="">
+                  <span class="post-date">{{ g.date }}</span>
                 </div>
   
                 <div class="post-content d-flex flex-column">
@@ -172,64 +140,21 @@
   
                   <hr>
   
-                  <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="#" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
   
                 </div>
   
               </div>
+             
             </div><!-- End post item -->
-  
-  
-  
-            <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-  
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="{% static 'assets/img/blog/blog-2.jpg' %}" class="img-fluid" alt="">
-                  <span class="post-date">July 17</span>
-                </div>
-  
-                <div class="post-content d-flex flex-column">
-  
-                  <hr>
-  
-                  <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-  
-                </div>
-  
-              </div>
-            </div><!-- End post item -->
-  
-  
-  
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="post-item position-relative h-100">
-  
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="{% static 'assets/img/blog/blog-3.jpg' %}" class="img-fluid" alt="">
-                  <span class="post-date">September 05</span>
-                </div>
-  
-                <div class="post-content d-flex flex-column">
-  
-                  <hr>
-  
-                  <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-  
-                </div>
-  
-              </div>
-            </div><!-- End post item -->
+            {% endfor %}
+   
   
           </div>
   
         </div>
   
       </section><!-- /Recent Blog Posts Section -->
-
-
-
-
 
 
 
@@ -273,9 +198,10 @@
             }
           </script>
           <div class="swiper-wrapper">
-
+            {% for q in questions %}
             <div class="swiper-slide">
               <div class="testimonial-wrap">
+            
                 <div class="testimonial-item">
                   <img src="{% static 'assets/img/testimonials/person.jpg' %}" class="testimonial-img" alt="">
                   <h3>User</h3>
@@ -284,80 +210,15 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                    <span>{{ q.question }}</span>
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
+             
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'assets/img/testimonials/person.jpg' %}" class="testimonial-img" alt="">
-                  <h3>User</h3>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'assets/img/testimonials/person.jpg' %}" class="testimonial-img" alt="">
-                  <h3>User</h3>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'assets/img/testimonials/person.jpg' %}" class="testimonial-img" alt="">
-                  <h3>User</h3>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'assets/img/testimonials/person.jpg' %}" class="testimonial-img" alt="">
-                  <h3>User</h3>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
+            {% endfor %}
+              
 
           </div>
           <div class="swiper-pagination"></div>
