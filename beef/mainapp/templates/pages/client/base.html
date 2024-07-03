@@ -37,27 +37,82 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-    .styled-button {
-        background-color: #9a6203; /* Green background */
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        padding: 8px 32px; /* Some padding */
-        text-align: center; /* Centered text */
-        text-decoration: none; /* Remove underline */
-        display: inline-block; /* Make the button inline */
-        font-size: 16px; /* Increase font size */
-        margin: 4px 2px; /* Some margin */
-        cursor: pointer; /* Pointer/hand icon on hover */
-        border-radius: 6px; /* Rounded corners */
-        transition-duration: 0.4s; /* Transition effect */
-    }
+  <style>    
+/* Base styling for form container */
+.form-email {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 600px;
+  margin: auto;
+}
 
-    .styled-button:hover {
-        background-color: white; /* White background on hover */
-        color: black; /* Black text on hover */
-        border: 2px solid #9a6203; /* Green border */
-    }
+/* Styling for form fields */
+.form-email .form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Focus state for form fields */
+.form-email .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Styling for the submit button */
+.form-email button[type="submit"] {
+  background: #9a6203;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Hover state for the submit button */
+.form-email button[type="submit"]:hover {
+  background: #c27c02;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .form-email .row .col-md-6, .form-email .row .col-md-12 {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+/* end form style*/
+
+
+.styled-button {
+    background-color: #9a6203; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 8px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon on hover */
+    border-radius: 6px; /* Rounded corners */
+    transition-duration: 0.4s; /* Transition effect */
+}
+
+.styled-button:hover {
+    background-color: white; /* White background on hover */
+    color: black; /* Black text on hover */
+    border: 2px solid #9a6203; /* Green border */
+}
 /* Top Bar Styles */
 .top-bar {
     background-color: #9a6203; /* Background color */
@@ -220,7 +275,55 @@
   justify-content: center;
   align-items: center;
 }
+/*for bg image*/
+.eco{
+  background: url("{% static 'assets/img/expo.jpg' %}") no-repeat center center;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  line-height: 30px;
+}
+.eco h3,
+.eco h4,
+.eco p {
+color: #fff; /* Set text color to white for better contrast */
+}
+/*for bg image */
+.come{
+  background-color: #fff;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  line-height: 30px;  
+}
+/*bg image*/
+.tz-way{
+  background: url("{% static 'assets/img/tz-way.jpg' %}") no-repeat center center;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  line-height: 30px;
+}
+/*for bg image */
+.feed{
+  background: url("{% static 'assets/img/feedss.jpg' %}") no-repeat center center;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  line-height: 30px;  
+}
+/*for bg image */
+.pro{
+  background-color: #fff;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  line-height: 30px;  
+}
 
+.our_story {
+    background: linear-gradient(135deg, #ffffff, #fac0a1);
+  }
 </style>
 </head>
 
@@ -304,13 +407,11 @@
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" class="form-control" name="subject" placeholder="Email address" required="">
+                <input type="text" class="form-control" name="email" placeholder="Email address" required="">
               </div>
 
               <div class="col-md-6 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                
 
                 <button class="styled-button" type="submit">Subscribe</button>
               </div>
@@ -324,14 +425,8 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Afriharvest Beef </strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="">g graphics</a>
-      </div>
+      <p>© <span>Copyright 2024</span> <strong class="px-1 sitename">Afriharvest Beef </strong> <span>All Rights Reserved</span></p>
+      
     </div>
 
   </footer>

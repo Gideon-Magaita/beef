@@ -58,3 +58,16 @@ class QuestionForm(ModelForm):
         widgets = {
             'question': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter sub-title','required':'required', 'placeholder': 'Enter sub-title'}),
         }
+
+
+class ContactForm(ModelForm):      
+    class Meta:
+        model = Contact
+        fields = ['name','email','subject','message']
+        
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control','placeholder':'Enter your name','required':'required'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
+            'subject': forms.TextInput(attrs={'class':'form-control','placeholder':'Enter subject','required':'required'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter message','required':'required', 'placeholder': 'Enter sub-title'}),
+        }

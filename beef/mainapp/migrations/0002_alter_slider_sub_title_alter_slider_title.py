@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='slider',
             name='sub_title',
-            field=models.TextField(blank=True, max_length=200, null=True),
+            field=models.TextField(),
         ),
         migrations.AlterField(
             model_name='slider',
             name='title',
-            field=models.CharField(blank=True, max_length=200, null=True),
+            field=models.CharField(max_length=200),
         ),
     ]

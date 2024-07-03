@@ -119,3 +119,8 @@ def question_page(request):
     }
     return render(request, 'pages/admins/question.html',context)
 
+
+def contact_page(request):
+    mess = Contact.objects.all()
+    context={'mess':mess}
+    return render(request, 'pages/admins/contact.html',context)

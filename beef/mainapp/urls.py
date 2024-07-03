@@ -15,5 +15,6 @@ urlpatterns = [
     path('story_page',admins.story_page,name='story_page'),
     path('gallery',admins.gallery,name='gallery'),
     path('question_page',admins.question_page,name='question_page'),
+    path('contact_page',admins.contact_page,name='contact_page'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
