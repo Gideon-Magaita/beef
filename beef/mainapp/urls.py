@@ -8,6 +8,8 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('journey',views.journey,name='journey'),
     path('contact',views.contact,name='contact'),
+    path('login_user',views.login_user,name='login_user'),
+    path('logoutUser',views.logoutUser,name='logoutUser'),
     #adminurls
     path('admin_home',admins.admin_home,name='admin_home'),
     path('slider',admins.slider,name='slider'),

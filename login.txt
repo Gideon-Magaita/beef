@@ -1,0 +1,2 @@
+username = admins
+pswd = 1234567#
