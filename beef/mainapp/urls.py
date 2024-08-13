@@ -18,5 +18,6 @@ urlpatterns = [
     path('gallery',admins.gallery,name='gallery'),
     path('question_page',admins.question_page,name='question_page'),
     path('contact_page',admins.contact_page,name='contact_page'),
+    path('edit_intro/<int:id>',admins.edit_intro,name='edit_intro'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

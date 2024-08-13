@@ -81,7 +81,7 @@
                         <td>{{ s.sub_title}}</td>
                         <td><img src="{{ s.image.url }}" alt="" style="width: 100px;height: 70px;"></td>
                         <td style="display:flex;">
-                            <a href="" class="btn btn-success" style="margin-right: 10px;">Edit</a>
+                          <a href="{% url 'edit_intro' s.id %}" class="btn btn-success" style="margin-right: 10px;">Edit</a>
                             <a onclick="return confirm('Are you you want to delete?')" href="" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>

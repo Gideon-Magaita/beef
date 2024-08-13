@@ -150,3 +150,19 @@ def contact_page(request):
     mess = Contact.objects.all()
     context={'mess':mess}
     return render(request, 'pages/admins/contact.html',context)
+
+
+
+@login_required(login_url='login_user')
+@allowed_users(allowed_roles=['admins'])
+def edit_intro(request,id):
+    intro = Intro.objects.get(id=id)
+    form = IntroForm(request.POST or None,request.FILES or None,instance=intro)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Introduction updated!')
+        return redirect('intro')
+    context={
+        'form': form,
+    }
+    return render(request,'pages/admins/edit-intro.html',context)
